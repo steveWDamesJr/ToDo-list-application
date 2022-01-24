@@ -25,11 +25,14 @@ let myList = [
   },
 ];
 
-const htmlList = 
-`
-<li class="input-li"><input type="checkbox" name="inputDone" id="inputDone">
-  <p class="item-edit" id="todoItem"></p>
-  <img class="grab" src="https://img.icons8.com/material-outlined/24/000000/menu-2.png" alt="grab">
-</li>
+let htmlList = '';
 
-`;
+myList.forEach(item => {
+  htmlList += 
+  `<li class="input-li"><input type="checkbox" name="inputDone" id="inputDone">
+    <p class="item-edit" id="${item.id}">${item.listItem}</p>
+    <img class="grab" src="https://img.icons8.com/material-outlined/24/000000/menu-2.png" alt="grab">
+  </li>`
+});
+
+list.innerHTML = htmlList;

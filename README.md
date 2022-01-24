@@ -9,7 +9,7 @@
 Additional description about the project and its features.
 
 # Screenshots
-![ToDo-APP](./images/todo-struc.png)
+![ToDo-APP](./images/Todo-app.png)
 
 
 ## Built With
@@ -27,6 +27,9 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 - Clone repository and open with text editor
+
+### Dependencies
+- Run npm install - to load necessary files from package.json
 
 ### Linter Setup
 - Apply Linter checks with the following instructions
