@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo-List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY TODO-LIST APP</title>
 </head>
 <body>
-  <h1>Today's Todos</h1>
+    <div class="container">
+      <div class="title-container">
+        <h1 class="app-title">Today's To Do</h1>
+        <img src="" alt="Refresh Symbol">
+      </div>
+      <form class="input-container">
+        <input class="input" type="text" placeholder="Add to your list please" aria-labelledby="todo input" >
+        <img src="" alt="hardReturn">
+      </form>
+      <form action="" class="listElementContainer">
+        <ul class="form-items">
+        <li class="input-li"><input type="checkbox" name="inputDone" id="inputDone">
+        <input class="item-edit" type="text" id="todoItem" >
+        <img class="grab" src="" alt="grab">
+        </li>
+      </ul>
+      </form>
+      <div>
+        <button class="clear" aria-labelledby="clear everything"> Clear all completed</button>
+      </div>
+    </div>
 </body>
 </html>
