@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO-LIST</title>
+    <title>MY TODO-LIST APP</title>
 <script defer src="bundle.js"></script></head>
 <body>
-  <div class="top-level-container">
-		<h1 class="todo-title">Today's To do<img src="https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/64/000000/external-refresh-arrow-kmg-design-detailed-outline-kmg-design.png" alt="Refresh Symbol" class="refresh-icon"></h1>
-		<div class="todoUpdate">
-			<input type="text" class="todoInput" placeholder="Add to your list..." />
-			<img class="enter" src="https://img.icons8.com/material-outlined/24/000000/return.png" alt="enter">
-		</div>
-		<div class="todoItems">
+    <div class="container">
+      <div class="title-container">
+        <h1 class="app-title">Today's To Do</h1>
+        <img class="refresh-icon" src="https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/64/000000/external-refresh-arrow-kmg-design-detailed-outline-kmg-design.png" alt="Refresh Symbol">
+      </div>
+      <form class="input-container">
+        <input class="input" type="text" placeholder="Add to your list please" aria-labelledby="todo input" >
+        <img class="hard-return" src="https://img.icons8.com/material-outlined/24/000000/return.png" alt="hardReturn">
+      </form>
+      <form action="" class="listElementContainer">
+        <ul class="form-items">
+        
+          <!-- ToDo List FROM JS -->
 
-		</div>
-		<button class="clearTodos">Clear all completed</button>
-	</div>
+      </ul>
+      </form>
+      <div>
+        <button class="clear-todos" aria-labelledby="clear everything"> Clear all completed</button>
+      </div>
+    </div>
 </body>
 </html>
