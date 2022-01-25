@@ -1,7 +1,7 @@
 {
-  "name": "webpack-initialization",
+  "name": "my-todo-list-app",
   "version": "1.0.0",
-  "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
+  "description": "![](https://img.shields.io/badge/Microverse-blueviolet). This project uses webpack to bundle js modules. User can add, remove, edit, list items. Built with JavaScript, HTML & CSS",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -40,7 +40,9 @@
     "xml-loader": "^1.2.1"
   },
   "dependencies": {
+    "eslint-import-resolver-webpack": "^0.13.2",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"
 }
+

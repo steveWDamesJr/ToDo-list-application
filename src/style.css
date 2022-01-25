@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+img {
+  margin-bottom: auto;
+  margin-top: auto;
+  width: 20px;
+  height: 16px;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+.container {
+  width: 400px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #f6f6f6;
+  box-shadow: 2px 2px 14px black;
+  margin-top: 2rem;
+}
+
+.title-container,
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5rem;
+  border-bottom: 3px solid #f6f6f6;
+}
+
+.app-title {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 1rem;
+}
+
+.hard-return,
+.refresh-icon {
+  padding-right: 0.5rem;
+  cursor: pointer;
+}
+
+.refresh-icon:active {
+  transform: rotate(360deg) scale(0.6);
+  transition: all 0.2s ease-in-out;
+}
+
+.input-li {
+  display: flex;
+  flex-direction: row;
+  height: 2.5rem;
+  align-items: center;
+  border-bottom: 3px solid #f6f6f6;
+  padding-left: 1rem;
+}
+
+.input {
+  width: 105%;
+  padding-left: 1rem;
+}
+
+::placeholder {
+  font-style: italic;
+}
+
+.item-edit {
+  width: 90%;
+  padding-left: 1rem;
+}
+
+.clear-todos {
+  width: 100%;
+  height: 2.5rem;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.clear-todos:hover,
+.clear-todos:focus {
+  color: #92b8f1;
+  text-decoration: underline;
+}
+
+input {
+  border: none;
+  outline: none;
+  overflow: hidden;
+}
+
+.grab {
+  cursor: move;
+}
