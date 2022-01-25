@@ -1,23 +1,26 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+  },
   devtool: 'inline-source-map',
   devServer: {
-    static: './src',
+    static: './dist',
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-  ],
   output: {
-    filename: 'index.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'TODO-LIST',
+      template: './src/index.html',
+    }),
+  ],
   module: {
     rules: [
       {
@@ -25,16 +28,20 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          outputPath: 'images',
-        },
+        test: /\.(csv|tsv)$/i,
+        use: ['csv-loader'],
+      },
+      {
+        test: /\.xml$/i,
+        use: ['xml-loader'],
       },
     ],
   },
