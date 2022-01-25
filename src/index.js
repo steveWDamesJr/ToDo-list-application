@@ -4,24 +4,9 @@ const list = document.querySelector('.form-items');
 
 const myList = [
   {
-    listItem: 'Play piano at 5',
+    listItem: '',
     completed: false,
     id: 1,
-  },
-  {
-    listItem: 'Watch olympic race at 7',
-    completed: false,
-    id: 2,
-  },
-  {
-    listItem: 'Go roller blading with Tony',
-    completed: false,
-    id: 3,
-  },
-  {
-    listItem: 'Dance lesson at 12 noon',
-    completed: false,
-    id: 4,
   },
 ];
 
