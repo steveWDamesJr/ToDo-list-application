@@ -40,6 +40,7 @@
     "xml-loader": "^1.2.1"
   },
   "dependencies": {
+    "eslint-import-resolver-webpack": "^0.13.2",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"
