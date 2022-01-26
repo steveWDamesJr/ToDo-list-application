@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/steveWDamesJr/webpack-initialization#readme",
   "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/eslint-parser": "^7.16.5",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.5.1",
     "csv-loader": "^3.0.3",
