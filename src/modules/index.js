@@ -1,10 +1,8 @@
-import './style.css';
-import { addTodo } from './modules/index.js';
-
 let userInput = [];
 
-function renderTodo(todo) {
+export function renderTodo(todo) {
   localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
+  // localStorage.setItem('task', JSON.stringify(userInput));
   const list = document.querySelector('.form-items');
   const item = document.querySelector(`[data-key='${todo.id}']`);
 
@@ -18,12 +16,18 @@ function renderTodo(todo) {
   const htmlLi = document.createElement('li');
 
   htmlLi.setAttribute('class', `input-li ${isCompleted}`);
+  // htmlLi.classList.add('input-li');
   htmlLi.setAttribute('data-key', todo.id);
   htmlLi.innerHTML = `
   <input id="${todo.id}" type="checkbox"/>
   <label class="ticked js-tick" for="${todo.id}"></label>
+  
+  
       <p class="task input-li item-edit render-item" id="${todo.id}">${todo.listItem}</p>
+
+
   <button class="delete-todo js-delete-todo"><img src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/000000/external-delete-user-interface-wanicon-lineal-wanicon.png" class="delete-todo js-delete-todo alt="delete" id="delete"/></button>
+  
   <img class="edit" src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-edit-interface-dreamstale-lineal-dreamstale-2.png" alt="edit" />
   `;
   if (item) {
@@ -37,6 +41,17 @@ function toggleDone(key) {
   const index = userInput.findIndex((item) => item.id === Number(key));
   userInput[index].completed = !userInput[index].completed;
   renderTodo(userInput[index]);
+}
+
+export function addTodo(text) {
+  const todo = {
+    listItem: text,
+    completed: false,
+    id: Date.now(),
+  };
+
+  userInput.push(todo);
+  renderTodo(todo);
 }
 
 function deleteTodo(key) {
@@ -103,5 +118,6 @@ list.addEventListener('click', (event) => {
         localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
       }
     });
+    // console.log(userInput);
   }
 });
