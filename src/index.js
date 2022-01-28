@@ -1,8 +1,8 @@
 import './style.css';
 import { dateElement, options, today } from './modules/date.js';
-import { LIST } from './modules/depen.js';
 
 dateElement.innerHTML = today.toLocaleDateString('en-US', options);
+
 let userInput = [];
 
 function renderTodo(todo) {
@@ -52,7 +52,6 @@ function toggleDone(key) {
   userInput[index].completed = !userInput[index].completed;
   renderTodo(userInput[index]);
 }
-
 function deleteTodo(key) {
   const index = userInput.findIndex((item) => item.id === Number(key));
   const todo = {
@@ -76,7 +75,9 @@ form.addEventListener('submit', (event) => {
   }
 });
 
-LIST.addEventListener('click', (event) => {
+const list = document.querySelector('.form-items');
+
+list.addEventListener('click', (event) => {
   if (event.target.classList.contains('.ticked')) {
     const itemKey = event.target;
     toggleDone(itemKey);
@@ -97,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-LIST.addEventListener('click', (event) => {
+list.addEventListener('click', (event) => {
   const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
   const thisTarget = event.target;
   if (thisTarget.className === 'edit') {
