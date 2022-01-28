@@ -1,9 +1,15 @@
-* {
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   list-style-type: none;
   font-size: 16px;
+}
+
+#date {
+  padding-left: 19px;
 }
 
 h1 {
@@ -38,6 +44,10 @@ button {
   justify-content: space-between;
   height: 2.5rem;
   border-bottom: 3px solid #f6f6f6;
+}
+
+.title-container {
+  padding-bottom: 5px;
 }
 
 .app-title {
@@ -99,6 +109,43 @@ input {
   overflow: hidden;
 }
 
-.grab {
-  cursor: move;
+.edit {
+  cursor: pointer;
+  padding-bottom: 2px;
+  padding-left: 2px;
+}
+
+.complete span,
+input:checked {
+  text-decoration: line-through;
+}
+
+.delete-todo {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.input-li span {
+  flex-grow: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+.input-li span input {
+  width: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.complete:active {
+  display: none;
 }
