@@ -1,6 +1,8 @@
 import './style.css';
-import { addTodo } from './modules/index.js';
+import { dateElement, options, today } from './modules/date.js';
+import { LIST } from './modules/depen.js';
 
+dateElement.innerHTML = today.toLocaleDateString('en-US', options);
 let userInput = [];
 
 function renderTodo(todo) {
@@ -24,6 +26,7 @@ function renderTodo(todo) {
   <label class="ticked js-tick" for="${todo.id}"></label>
       <p class="task input-li item-edit render-item" id="${todo.id}">${todo.listItem}</p>
   <button class="delete-todo js-delete-todo"><img src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/000000/external-delete-user-interface-wanicon-lineal-wanicon.png" class="delete-todo js-delete-todo alt="delete" id="delete"/></button>
+  
   <img class="edit" src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-edit-interface-dreamstale-lineal-dreamstale-2.png" alt="edit" />
   `;
   if (item) {
@@ -31,6 +34,17 @@ function renderTodo(todo) {
   } else {
     list.append(htmlLi);
   }
+}
+
+function addTodo(text) {
+  const todo = {
+    listItem: text,
+    completed: false,
+    id: Date.now(),
+  };
+
+  userInput.push(todo);
+  renderTodo(todo);
 }
 
 function toggleDone(key) {
@@ -62,12 +76,9 @@ form.addEventListener('submit', (event) => {
   }
 });
 
-const list = document.querySelector('.form-items');
-
-list.addEventListener('click', (event) => {
+LIST.addEventListener('click', (event) => {
   if (event.target.classList.contains('.ticked')) {
     const itemKey = event.target;
-    console.log(itemKey);
     toggleDone(itemKey);
   }
   if (event.target.classList.contains('js-delete-todo')) {
@@ -86,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-list.addEventListener('click', (event) => {
+LIST.addEventListener('click', (event) => {
   const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
   const thisTarget = event.target;
   if (thisTarget.className === 'edit') {

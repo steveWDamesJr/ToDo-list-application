@@ -1,8 +1,7 @@
 let userInput = [];
 
-export function renderTodo(todo) {
+export default function renderTodo(todo) {
   localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
-  // localStorage.setItem('task', JSON.stringify(userInput));
   const list = document.querySelector('.form-items');
   const item = document.querySelector(`[data-key='${todo.id}']`);
 
@@ -16,16 +15,11 @@ export function renderTodo(todo) {
   const htmlLi = document.createElement('li');
 
   htmlLi.setAttribute('class', `input-li ${isCompleted}`);
-  // htmlLi.classList.add('input-li');
   htmlLi.setAttribute('data-key', todo.id);
   htmlLi.innerHTML = `
   <input id="${todo.id}" type="checkbox"/>
   <label class="ticked js-tick" for="${todo.id}"></label>
-  
-  
       <p class="task input-li item-edit render-item" id="${todo.id}">${todo.listItem}</p>
-
-
   <button class="delete-todo js-delete-todo"><img src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/000000/external-delete-user-interface-wanicon-lineal-wanicon.png" class="delete-todo js-delete-todo alt="delete" id="delete"/></button>
   
   <img class="edit" src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-edit-interface-dreamstale-lineal-dreamstale-2.png" alt="edit" />
@@ -37,13 +31,7 @@ export function renderTodo(todo) {
   }
 }
 
-function toggleDone(key) {
-  const index = userInput.findIndex((item) => item.id === Number(key));
-  userInput[index].completed = !userInput[index].completed;
-  renderTodo(userInput[index]);
-}
-
-export function addTodo(text) {
+function addTodo(text) {
   const todo = {
     listItem: text,
     completed: false,
@@ -52,6 +40,12 @@ export function addTodo(text) {
 
   userInput.push(todo);
   renderTodo(todo);
+}
+
+function toggleDone(key) {
+  const index = userInput.findIndex((item) => item.id === Number(key));
+  userInput[index].completed = !userInput[index].completed;
+  renderTodo(userInput[index]);
 }
 
 function deleteTodo(key) {
@@ -77,12 +71,10 @@ form.addEventListener('submit', (event) => {
   }
 });
 
-const list = document.querySelector('.form-items');
-
-list.addEventListener('click', (event) => {
+export const LIST = document.querySelector('.form-items');
+LIST.addEventListener('click', (event) => {
   if (event.target.classList.contains('.ticked')) {
     const itemKey = event.target;
-    console.log(itemKey);
     toggleDone(itemKey);
   }
   if (event.target.classList.contains('js-delete-todo')) {
@@ -101,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-list.addEventListener('click', (event) => {
+LIST.addEventListener('click', (event) => {
   const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
   const thisTarget = event.target;
   if (thisTarget.className === 'edit') {
@@ -118,6 +110,5 @@ list.addEventListener('click', (event) => {
         localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
       }
     });
-    // console.log(userInput);
   }
 });
