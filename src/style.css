@@ -8,6 +8,11 @@
   font-size: 16px;
 }
 
+body {
+  background: url("./bgrd2.jpg");
+  background-size: cover;
+}
+
 #date {
   padding-left: 19px;
 }
@@ -36,6 +41,7 @@ button {
   border: 2px solid #f6f6f6;
   box-shadow: 2px 2px 14px black;
   margin-top: 2rem;
+  background: #fff;
 }
 
 .title-container,
@@ -115,8 +121,15 @@ input {
   padding-left: 2px;
 }
 
-.complete span,
-input:checked {
+.uncheck {
+  text-decoration: none;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.complete span {
   text-decoration: line-through;
 }
 
