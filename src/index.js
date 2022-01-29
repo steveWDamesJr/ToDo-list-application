@@ -1,4 +1,5 @@
 import './style.css';
+
 import {
   dateElement,
   options,
@@ -13,6 +14,7 @@ const clearAllBtn = document.querySelector('.clear-todos');
 let userInput = localStorage.getItem('todoItemsRef')
   ? JSON.parse(localStorage.getItem('todoItemsRef')) : [];
 
+
 function addTodo(text) {
   const todo = {
     listItem: text,
@@ -23,7 +25,6 @@ function addTodo(text) {
   userInput.push(todo);
   renderTodo(userInput);
 }
-
 function deleteTodo(key) {
   const li = key.parentElement.parentElement;
   const title = li.querySelector('.task').textContent;
@@ -47,10 +48,12 @@ form.addEventListener('submit', (event) => {
   }
 });
 
+
 list.addEventListener('click', (event) => {
   const deletebtn = event.target;
   if (deletebtn.id === 'delete') {
     deleteTodo(deletebtn);
+
   }
 });
 
