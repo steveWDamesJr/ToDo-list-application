@@ -1,40 +1,17 @@
 import './style.css';
-import { dateElement, options, today } from './modules/date.js';
-import { LIST } from './modules/depen.js';
+import {
+  dateElement,
+  options,
+  today,
+} from './modules/date.js';
+import renderTodo, {
+  list,
+} from './modules/status.js';
 
 dateElement.innerHTML = today.toLocaleDateString('en-US', options);
-let userInput = [];
-
-function renderTodo(todo) {
-  localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
-  const list = document.querySelector('.form-items');
-  const item = document.querySelector(`[data-key='${todo.id}']`);
-
-  if (todo.deleted) {
-    item.remove();
-    if (userInput.length === 0) list.innerHTML = '';
-    return;
-  }
-
-  const isCompleted = todo.completed ? 'complete' : '';
-  const htmlLi = document.createElement('li');
-
-  htmlLi.setAttribute('class', `input-li ${isCompleted}`);
-  htmlLi.setAttribute('data-key', todo.id);
-  htmlLi.innerHTML = `
-  <input id="${todo.id}" type="checkbox"/>
-  <label class="ticked js-tick" for="${todo.id}"></label>
-      <p class="task input-li item-edit render-item" id="${todo.id}">${todo.listItem}</p>
-  <button class="delete-todo js-delete-todo"><img src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/000000/external-delete-user-interface-wanicon-lineal-wanicon.png" class="delete-todo js-delete-todo alt="delete" id="delete"/></button>
-  
-  <img class="edit" src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-edit-interface-dreamstale-lineal-dreamstale-2.png" alt="edit" />
-  `;
-  if (item) {
-    list.replaceChild(htmlLi, item);
-  } else {
-    list.append(htmlLi);
-  }
-}
+const clearAllBtn = document.querySelector('.clear-todos');
+let userInput = localStorage.getItem('todoItemsRef')
+  ? JSON.parse(localStorage.getItem('todoItemsRef')) : [];
 
 function addTodo(text) {
   const todo = {
@@ -44,23 +21,17 @@ function addTodo(text) {
   };
 
   userInput.push(todo);
-  renderTodo(todo);
-}
-
-function toggleDone(key) {
-  const index = userInput.findIndex((item) => item.id === Number(key));
-  userInput[index].completed = !userInput[index].completed;
-  renderTodo(userInput[index]);
+  renderTodo(userInput);
 }
 
 function deleteTodo(key) {
-  const index = userInput.findIndex((item) => item.id === Number(key));
-  const todo = {
-    deleted: true,
-    ...userInput[index],
-  };
-  userInput = userInput.filter((item) => item.id !== Number(key));
-  renderTodo(todo);
+  const li = key.parentElement.parentElement;
+  const title = li.querySelector('.task').textContent;
+  userInput = userInput.filter((item) => item.listItem !== title);
+
+  localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
+
+  key.parentElement.parentElement.remove();
 }
 
 const form = document.querySelector('.input-container');
@@ -76,14 +47,10 @@ form.addEventListener('submit', (event) => {
   }
 });
 
-LIST.addEventListener('click', (event) => {
-  if (event.target.classList.contains('.ticked')) {
-    const itemKey = event.target;
-    toggleDone(itemKey);
-  }
-  if (event.target.classList.contains('js-delete-todo')) {
-    const itemKey = event.target.parentElement.parentElement.dataset.key;
-    deleteTodo(itemKey);
+list.addEventListener('click', (event) => {
+  const deletebtn = event.target;
+  if (deletebtn.id === 'delete') {
+    deleteTodo(deletebtn);
   }
 });
 
@@ -91,13 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const ref = localStorage.getItem('todoItemsRef');
   if (ref) {
     userInput = JSON.parse(ref);
-    userInput.forEach((t) => {
-      renderTodo(t);
-    });
+    renderTodo(userInput);
   }
 });
 
-LIST.addEventListener('click', (event) => {
+list.addEventListener('click', (event) => {
   const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
   const thisTarget = event.target;
   if (thisTarget.className === 'edit') {
@@ -115,4 +80,53 @@ LIST.addEventListener('click', (event) => {
       }
     });
   }
+});
+
+list.addEventListener('click', (event) => {
+  const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
+  const thisTarget = event.target;
+  if (thisTarget.className === 'edit') {
+    const currentText = thisTarget.parentElement.querySelector('.task').innerHTML;
+    const indexCurrentText = (ref.map((task) => task.listItem).indexOf(currentText));
+    const textPar = thisTarget.parentElement.querySelector('.task');
+    let changedText = '';
+    textPar.contentEditable = true;
+    textPar.addEventListener('keyup', () => {
+      changedText = textPar.innerHTML;
+      if (currentText !== changedText) {
+        ref[indexCurrentText].listItem = changedText;
+        userInput = ref.filter((input) => input.listItem !== currentText);
+        localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
+      }
+    });
+  }
+});
+
+list.addEventListener('change', (event) => {
+  const thisTarget = event.target;
+
+  const checkboxToTick = thisTarget.parentElement.querySelector('.check');
+
+  const textPtag = thisTarget.parentElement.querySelector('.task');
+
+  userInput.forEach((task) => {
+    if (checkboxToTick.checked === true) {
+      if (task.listItem === textPtag.innerHTML) {
+        textPtag.classList.add('line-through');
+        task.completed = true;
+      }
+    } else {
+      // eslint-disable-next-line no-lonely-if
+      if (task.listItem === textPtag.innerHTML) {
+        textPtag.classList.remove('line-through');
+        task.completed = false;
+      }
+    }
+  });
+  localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
+});
+
+clearAllBtn.addEventListener('click', () => {
+  userInput = userInput.filter((task) => task.completed === false);
+  renderTodo(userInput);
 });
