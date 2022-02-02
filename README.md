@@ -8,6 +8,11 @@
 
 Additional description about the project and its features.
 
+## Live Demo (if available)
+
+[Live Demo Link](https://stevewdamesjr.github.io/ToDo-list-application/)
+
+
 # Screenshots
 ![ToDo-APP](./images/Todo-app.png)
 
