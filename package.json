@@ -4,22 +4,24 @@
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet). This project uses webpack to bundle js modules. User can add, remove, edit, list items. Built with JavaScript, HTML & CSS",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "test": "jest --coverage --watch --verbose",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/steveWDamesJr/webpack-initialization.git"
+    "url": "git+https://github.com/steveWDamesJr/ToDo-list-application.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/steveWDamesJr/webpack-initialization/issues"
+    "url": "https://github.com/steveWDamesJr/ToDo-list-application/issues"
   },
-  "homepage": "https://github.com/steveWDamesJr/webpack-initialization#readme",
+  "homepage": "https://steveWDamesJr.github.io/ToDo-list-application",
   "devDependencies": {
     "@babel/core": "^7.16.12",
     "@babel/eslint-parser": "^7.16.5",
@@ -29,8 +31,10 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.25.4",
+    "gh-pages": "^3.2.3",
     "hint": "^6.1.3",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^25.1.0",
     "style-loader": "^3.3.1",
     "stylelint": "^14.3.0",
     "stylelint-config-standard": "^24.0.0",

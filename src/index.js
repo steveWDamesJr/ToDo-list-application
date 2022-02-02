@@ -14,7 +14,6 @@ const clearAllBtn = document.querySelector('.clear-todos');
 let userInput = localStorage.getItem('todoItemsRef')
   ? JSON.parse(localStorage.getItem('todoItemsRef')) : [];
 
-
 function addTodo(text) {
   const todo = {
     listItem: text,
@@ -48,12 +47,10 @@ form.addEventListener('submit', (event) => {
   }
 });
 
-
 list.addEventListener('click', (event) => {
   const deletebtn = event.target;
   if (deletebtn.id === 'delete') {
     deleteTodo(deletebtn);
-
   }
 });
 
