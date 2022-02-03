@@ -1,4 +1,4 @@
-const addTodo = require('./todo.js');
+const addTodo = require('../main-files/todo.js');
 
 test('We want to return an object with three property value pairs', () => {
   expect(addTodo()).toEqual({

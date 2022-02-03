@@ -1,6 +1,6 @@
 // import renderTodo from './modules/status.js';
 
-jest.mock('./todo');
+// jest.mock('./todo');
 
 function addTodo() {
   return {
