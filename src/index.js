@@ -20,7 +20,6 @@ function addTodo(text) {
 function deleteTodo(key) {
   const li = key.parentElement.parentElement;
   const title = li.querySelector('.task').id;
-  console.log(title);
   remove(title);
   key.parentElement.parentElement.remove();
 }
@@ -47,27 +46,6 @@ list.addEventListener('click', (event) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderTodo();
-});
-
-list.addEventListener('click', (event) => {
-  let userInput = storageManager.getData();
-  const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
-  const thisTarget = event.target;
-  if (thisTarget.className === 'edit') {
-    const currentText = thisTarget.parentElement.querySelector('.task').innerHTML;
-    const indexCurrentText = (ref.map((task) => task.listItem).indexOf(currentText));
-    const textPar = thisTarget.parentElement.querySelector('.task');
-    let changedText = '';
-    textPar.contentEditable = true;
-    textPar.addEventListener('keyup', () => {
-      changedText = textPar.innerHTML;
-      if (currentText !== changedText) {
-        ref[indexCurrentText].listItem = changedText;
-        userInput = ref.filter((input) => input.listItem !== currentText);
-        storageManager.setData(userInput);
-      }
-    });
-  }
 });
 
 list.addEventListener('click', (event) => {

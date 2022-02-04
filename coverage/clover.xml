@@ -1,48 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643998208095" clover="3.2.0">
-  <project timestamp="1643998208095" name="All files">
-    <metrics statements="24" coveredstatements="23" conditionals="6" coveredconditionals="4" methods="8" coveredmethods="8" elements="38" coveredelements="35" complexity="0" loc="24" ncloc="24" packages="2" files="4" classes="4"/>
-    <package name="main-files">
-      <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
-      <file name="add.js" path="/Users/mac/Microverse/ToDo-list-application/src/main-files/add.js">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="7" type="stmt"/>
-        <line num="5" count="7" type="stmt"/>
-        <line num="11" count="7" type="stmt"/>
-        <line num="12" count="7" type="stmt"/>
-      </file>
-      <file name="remove.js" path="/Users/mac/Microverse/ToDo-list-application/src/main-files/remove.js">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="5" count="22" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
-      </file>
-      <file name="storage.js" path="/Users/mac/Microverse/ToDo-list-application/src/main-files/storage.js">
-        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="11" type="stmt"/>
-        <line num="6" count="17" type="cond" truecount="2" falsecount="0"/>
-      </file>
-    </package>
-    <package name="modules">
-      <metrics statements="12" coveredstatements="11" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
-      <file name="status.js" path="/Users/mac/Microverse/ToDo-list-application/src/modules/status.js">
-        <metrics statements="12" coveredstatements="11" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="10" type="cond" truecount="1" falsecount="1"/>
-        <line num="10" count="10" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="25" count="10" type="cond" truecount="1" falsecount="1"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="28" count="10" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1644004485154" clover="3.2.0">
+  <project timestamp="1644004485154" name="All files">
+    <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3" elements="13" coveredelements="13" complexity="0" loc="8" ncloc="8" packages="1" files="2" classes="2"/>
+    <file name="add.js" path="/Users/mac/Microverse/ToDo-list-application/src/main-files/add.js">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="12" count="2" type="stmt"/>
+    </file>
+    <file name="storage.js" path="/Users/mac/Microverse/ToDo-list-application/src/main-files/storage.js">
+      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="6" count="4" type="cond" truecount="2" falsecount="0"/>
+    </file>
   </project>
 </coverage>
