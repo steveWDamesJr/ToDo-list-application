@@ -1,36 +1,27 @@
 import './style.css';
-
+import storageManager from './main-files/storage.js';
 import {
   dateElement,
   options,
   today,
 } from './modules/date.js';
-import renderTodo, {
-  list,
-} from './modules/status.js';
+import renderTodo from './modules/status.js';
+import add from './main-files/add.js';
+import remove from './main-files/remove.js';
+
+const list = document.querySelector('.form-items');
 
 dateElement.innerHTML = today.toLocaleDateString('en-US', options);
 const clearAllBtn = document.querySelector('.clear-todos');
-let userInput = localStorage.getItem('todoItemsRef')
-  ? JSON.parse(localStorage.getItem('todoItemsRef')) : [];
-
 function addTodo(text) {
-  const todo = {
-    listItem: text,
-    completed: false,
-    id: Date.now(),
-  };
-
-  userInput.push(todo);
-  renderTodo(userInput);
+  add(text);
+  renderTodo();
 }
 function deleteTodo(key) {
   const li = key.parentElement.parentElement;
-  const title = li.querySelector('.task').textContent;
-  userInput = userInput.filter((item) => item.listItem !== title);
-
-  localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
-
+  const title = li.querySelector('.task').id;
+  console.log(title);
+  remove(title);
   key.parentElement.parentElement.remove();
 }
 
@@ -55,14 +46,11 @@ list.addEventListener('click', (event) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const ref = localStorage.getItem('todoItemsRef');
-  if (ref) {
-    userInput = JSON.parse(ref);
-    renderTodo(userInput);
-  }
+  renderTodo();
 });
 
 list.addEventListener('click', (event) => {
+  let userInput = storageManager.getData();
   const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
   const thisTarget = event.target;
   if (thisTarget.className === 'edit') {
@@ -76,13 +64,14 @@ list.addEventListener('click', (event) => {
       if (currentText !== changedText) {
         ref[indexCurrentText].listItem = changedText;
         userInput = ref.filter((input) => input.listItem !== currentText);
-        localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
+        storageManager.setData(userInput);
       }
     });
   }
 });
 
 list.addEventListener('click', (event) => {
+  let userInput = storageManager.getData();
   const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
   const thisTarget = event.target;
   if (thisTarget.className === 'edit') {
@@ -96,13 +85,14 @@ list.addEventListener('click', (event) => {
       if (currentText !== changedText) {
         ref[indexCurrentText].listItem = changedText;
         userInput = ref.filter((input) => input.listItem !== currentText);
-        localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
+        storageManager.setData(userInput);
       }
     });
   }
 });
 
 list.addEventListener('change', (event) => {
+  const userInput = storageManager.getData();
   const thisTarget = event.target;
 
   const checkboxToTick = thisTarget.parentElement.querySelector('.check');
@@ -123,10 +113,12 @@ list.addEventListener('change', (event) => {
       }
     }
   });
-  localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
+  storageManager.setData(userInput);
 });
 
 clearAllBtn.addEventListener('click', () => {
+  let userInput = storageManager.getData();
   userInput = userInput.filter((task) => task.completed === false);
-  renderTodo(userInput);
+  storageManager.setData(userInput);
+  renderTodo();
 });

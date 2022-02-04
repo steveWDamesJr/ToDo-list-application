@@ -1,8 +1,7 @@
-export const list = document.querySelector('.form-items');
+import storageManager from '../main-files/storage.js';
 
-export default function renderTodo(userInput) {
-  localStorage.setItem('todoItemsRef', JSON.stringify(userInput));
-
+export default function renderTodo() {
+  const userInput = storageManager.getData();
   let htmlLi = '';
 
   userInput.forEach((tasks) => {
@@ -19,6 +18,7 @@ export default function renderTodo(userInput) {
   `;
   });
 
+  const list = document.querySelector('.form-items');
   list.innerHTML = htmlLi;
   const checkboxes = document.querySelectorAll('.check');
   checkboxes.forEach((box) => {
