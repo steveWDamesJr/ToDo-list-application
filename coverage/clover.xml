@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1644004485154" clover="3.2.0">
-  <project timestamp="1644004485154" name="All files">
-    <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3" elements="13" coveredelements="13" complexity="0" loc="8" ncloc="8" packages="1" files="2" classes="2"/>
-    <file name="add.js" path="/Users/mac/Microverse/ToDo-list-application/src/main-files/add.js">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="2" type="stmt"/>
-      <line num="5" count="2" type="stmt"/>
-      <line num="11" count="2" type="stmt"/>
-      <line num="12" count="2" type="stmt"/>
-    </file>
-    <file name="storage.js" path="/Users/mac/Microverse/ToDo-list-application/src/main-files/storage.js">
-      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <line num="2" count="1" type="stmt"/>
-      <line num="3" count="2" type="stmt"/>
-      <line num="6" count="4" type="cond" truecount="2" falsecount="0"/>
-    </file>
+<coverage generated="1644005420073" clover="3.2.0">
+  <project timestamp="1644005420074" name="All files">
+    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
   </project>
 </coverage>

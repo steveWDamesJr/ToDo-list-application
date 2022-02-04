@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">91.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>11/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">91.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>11/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,44 +97,44 @@
 <a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import storageManager from '../main-files/storage.js';
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >renderTodo(</span>) {
-  const userInput = <span class="cstat-no" title="statement not covered" >storageManager.getData();</span>
-  let htmlLi = <span class="cstat-no" title="statement not covered" >'';</span>
+export default function renderTodo() {
+  const userInput = storageManager.getData();
+  let htmlLi = '';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  userInput.forEach(<span class="fstat-no" title="function not covered" >(t</span>asks) =&gt; {</span>
-    const defaultCompleted = <span class="cstat-no" title="statement not covered" >(tasks.completed) ? 'checked' : '';</span>
+  userInput.forEach((tasks) =&gt; {
+    const defaultCompleted = (tasks.completed) ? <span class="branch-0 cbranch-no" title="branch not covered" >'checked' </span>: '';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    htmlLi += `</span>
+    htmlLi += `
   &lt;li class="input-li"&gt;
   &lt;input class="check" type="checkbox" name="checkbox" id="${tasks.id}" ${defaultCompleted} /&gt;
       &lt;p class="task input-li item-edit render-item" id="${tasks.id}"&gt;${tasks.listItem}&lt;/p&gt;
@@ -145,14 +145,14 @@ export default function <span class="fstat-no" title="function not covered" >ren
   `;
   });
 &nbsp;
-  const list = <span class="cstat-no" title="statement not covered" >document.querySelector('.form-items');</span>
-<span class="cstat-no" title="statement not covered" >  list.innerHTML = htmlLi;</span>
-  const checkboxes = <span class="cstat-no" title="statement not covered" >document.querySelectorAll('.check');</span>
-<span class="cstat-no" title="statement not covered" >  checkboxes.forEach(<span class="fstat-no" title="function not covered" >(b</span>ox) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (box.checked) {</span>
+  const list = document.querySelector('.form-items');
+  list.innerHTML = htmlLi;
+  const checkboxes = document.querySelectorAll('.check');
+  checkboxes.forEach((box) =&gt; {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (box.checked) {
 <span class="cstat-no" title="statement not covered" >      box.nextElementSibling.classList.add('line-through');</span>
     } else {
-<span class="cstat-no" title="statement not covered" >      box.nextElementSibling.classList.remove('line-through');</span>
+      box.nextElementSibling.classList.remove('line-through');
     }
   });
 }
@@ -163,7 +163,7 @@ export default function <span class="fstat-no" title="function not covered" >ren
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Feb 04 2022 14:54:23 GMT-0500 (Eastern Standard Time)
+                at Fri Feb 04 2022 21:09:48 GMT+0100 (West Africa Standard Time)
             </div>
         <script src="../prettify.js"></script>
         <script>
