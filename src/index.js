@@ -9,21 +9,24 @@ import renderTodo, {
   list,
 } from './modules/status.js';
 
+const addTodo = require('./main-files/todo.js');
+
 dateElement.innerHTML = today.toLocaleDateString('en-US', options);
 const clearAllBtn = document.querySelector('.clear-todos');
 let userInput = localStorage.getItem('todoItemsRef')
   ? JSON.parse(localStorage.getItem('todoItemsRef')) : [];
 
-function addTodo(text) {
-  const todo = {
-    listItem: text,
-    completed: false,
-    id: Date.now(),
-  };
+// function addTodo(text) {
+//   const todo = {
+//     listItem: text,
+//     completed: false,
+//     id: Date.now(),
+//   };
 
-  userInput.push(todo);
-  renderTodo(userInput);
-}
+//   userInput.push(todo);
+//   renderTodo(userInput);
+// }
+
 function deleteTodo(key) {
   const li = key.parentElement.parentElement;
   const title = li.querySelector('.task').textContent;
@@ -41,7 +44,7 @@ form.addEventListener('submit', (event) => {
   const input = document.querySelector('.input');
   const text = input.value.trim();
   if (text !== '') {
-    addTodo(text);
+    addTodo(text, userInput);
     input.value = '';
     input.focus();
   }
@@ -130,3 +133,5 @@ clearAllBtn.addEventListener('click', () => {
   userInput = userInput.filter((task) => task.completed === false);
   renderTodo(userInput);
 });
+
+// export { addTodo };

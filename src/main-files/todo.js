@@ -1,20 +1,15 @@
-// import renderTodo from './modules/status.js';
+// const userInput = localStorage.getItem("todoItemsRef");
+import renderTodo from '../modules/status.js';
 
-// jest.mock('./todo');
-
-function addTodo() {
-  return {
-    listItem: '',
+function addTodo(someThing, someArr) {
+  const todo = {
+    listItem: someThing,
     completed: false,
-    id: 24576465747647,
+    id: Date.now(),
   };
-}
 
-// function addTodo() {
-//   return {
-//     listItem: '',
-//     completed: false,
-//     // id: Date.now(),
-//   };
+  someArr.push(todo);
+  //  renderTodo(someArr);
+}
 
 module.exports = addTodo;

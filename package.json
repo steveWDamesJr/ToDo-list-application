@@ -29,7 +29,7 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.4.6",
     "babel-polyfill": "^6.26.0",
-    "css-loader": "^6.5.1",
+    "css-loader": "^6.6.0",
     "csv-loader": "^3.0.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -51,6 +51,7 @@
   "dependencies": {
     "eslint-import-resolver-webpack": "^0.13.2",
     "html-render-webpack-plugin": "^3.0.1",
+    "jest-environment-jsdom": "^27.4.6",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"
