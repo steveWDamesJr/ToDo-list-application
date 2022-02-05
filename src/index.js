@@ -9,6 +9,7 @@ import renderTodo from './modules/status.js';
 import add from './main-files/add.js';
 import remove from './main-files/remove.js';
 import edit from './main-files/editTasks.js';
+import changeCheck from './main-files/completed.js';
 
 const list = document.querySelector('.form-items');
 
@@ -70,28 +71,18 @@ list.addEventListener('click', (event) => {
 });
 
 list.addEventListener('change', (event) => {
-  const userInput = storageManager.getData();
   const thisTarget = event.target;
-
-  const checkboxToTick = thisTarget.parentElement.querySelector('.check');
-
   const textPtag = thisTarget.parentElement.querySelector('.task');
-
-  userInput.forEach((task) => {
-    if (checkboxToTick.checked === true) {
-      if (task.listItem === textPtag.innerHTML) {
-        textPtag.classList.add('line-through');
-        task.completed = true;
-      }
-    } else {
-      // eslint-disable-next-line no-lonely-if
-      if (task.listItem === textPtag.innerHTML) {
-        textPtag.classList.remove('line-through');
-        task.completed = false;
-      }
-    }
-  });
-  storageManager.setData(userInput);
+  
+  const checkboxToTick = thisTarget.parentElement.querySelector('.check');
+  const index = checkboxToTick.id;
+  const status = checkboxToTick.checked;
+  if (status) {
+    textPtag.classList.add('line-through');
+  } else {
+    textPtag.classList.remove('line-through');
+  }
+  changeCheck(index, status);
 });
 
 clearAllBtn.addEventListener('click', () => {

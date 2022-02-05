@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1644067301423" clover="3.2.0">
-  <project timestamp="1644067301423" name="All files">
-    <metrics statements="24" coveredstatements="23" conditionals="6" coveredconditionals="4" methods="7" coveredmethods="7" elements="37" coveredelements="34" complexity="0" loc="24" ncloc="24" packages="2" files="4" classes="4"/>
+<coverage generated="1644070199401" clover="3.2.0">
+  <project timestamp="1644070199401" name="All files">
+    <metrics statements="24" coveredstatements="24" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7" elements="37" coveredelements="37" complexity="0" loc="24" ncloc="24" packages="2" files="4" classes="4"/>
     <package name="main-files">
       <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-      <file name="add.js" path="/Users/mac/Microverse/ToDo-list-application/src/main-files/add.js">
+      <file name="add.js" path="C:\Users\User\Desktop\ToDo-list-application\src\main-files\add.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="9" type="stmt"/>
-        <line num="5" count="9" type="stmt"/>
-        <line num="11" count="9" type="stmt"/>
-        <line num="12" count="9" type="stmt"/>
-      </file>
-      <file name="editTasks.js" path="/Users/mac/Microverse/ToDo-list-application/src/main-files/editTasks.js">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
       </file>
-      <file name="storage.js" path="/Users/mac/Microverse/ToDo-list-application/src/main-files/storage.js">
+      <file name="completed.js" path="C:\Users\User\Desktop\ToDo-list-application\src\main-files\completed.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+      <file name="storage.js" path="C:\Users\User\Desktop\ToDo-list-application\src\main-files\storage.js">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="15" type="stmt"/>
-        <line num="6" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="6" count="7" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="modules">
-      <metrics statements="12" coveredstatements="11" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
-      <file name="status.js" path="/Users/mac/Microverse/ToDo-list-application/src/modules/status.js">
-        <metrics statements="12" coveredstatements="11" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="8" count="14" type="cond" truecount="1" falsecount="1"/>
-        <line num="10" count="14" type="stmt"/>
-        <line num="21" count="4" type="stmt"/>
-        <line num="22" count="4" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
-        <line num="24" count="4" type="stmt"/>
-        <line num="25" count="14" type="cond" truecount="1" falsecount="1"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="28" count="14" type="stmt"/>
+      <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+      <file name="status.js" path="C:\Users\User\Desktop\ToDo-list-application\src\modules\status.js">
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
       </file>
     </package>
   </project>
