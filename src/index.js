@@ -10,7 +10,7 @@ import add from './main-files/add.js';
 import remove from './main-files/remove.js';
 import edit from './main-files/editTasks.js';
 import changeCheck from './main-files/completed.js';
-
+import clearCompleted from './main-files/clear.js';
 const list = document.querySelector('.form-items');
 
 dateElement.innerHTML = today.toLocaleDateString('en-US', options);
@@ -86,8 +86,5 @@ list.addEventListener('change', (event) => {
 });
 
 clearAllBtn.addEventListener('click', () => {
-  let userInput = storageManager.getData();
-  userInput = userInput.filter((task) => task.completed === false);
-  storageManager.setData(userInput);
-  renderTodo();
+  clearCompleted();
 });

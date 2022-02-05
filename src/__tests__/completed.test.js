@@ -6,6 +6,7 @@
  import storageManager from '../main-files/storage.js';
  import changeCheck from '../main-files/completed.js';
  import add from '../main-files/add.js';
+ import clearCompleted from '../main-files/clear.js';
  
  describe('Mark item as completed', () => {
   test('Add data to local storage', () => {
@@ -39,3 +40,20 @@
   });
 
 });
+
+describe('Check clear completed', ()=>{
+  test('check completed cleared from localStorage & DOM', ()=>{
+    add('Get coffee');
+    add('Say prayers');
+    add('Drink water');
+    changeCheck(2, true);
+    changeCheck(3, true);
+    clearCompleted();
+    const data = storageManager.getData();
+    expect(data.length).toBe(2);
+    const ul =document.querySelector('.form-items');
+    expect(ul.childElementCount).toBe(2)
+
+  })
+}
+)
