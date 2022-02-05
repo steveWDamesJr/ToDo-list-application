@@ -8,6 +8,7 @@ import {
 import renderTodo from './modules/status.js';
 import add from './main-files/add.js';
 import remove from './main-files/remove.js';
+import edit from './main-files/editTasks.js';
 
 const list = document.querySelector('.form-items');
 
@@ -49,21 +50,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 list.addEventListener('click', (event) => {
-  let userInput = storageManager.getData();
-  const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
+  // const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
   const thisTarget = event.target;
   if (thisTarget.className === 'edit') {
-    const currentText = thisTarget.parentElement.querySelector('.task').innerHTML;
-    const indexCurrentText = (ref.map((task) => task.listItem).indexOf(currentText));
+    // const currentText = thisTarget.parentElement.querySelector('.task').innerHTML;
+    // const indexCurrentText = (ref.map((task) => task.listItem).indexOf(currentText));
     const textPar = thisTarget.parentElement.querySelector('.task');
     let changedText = '';
+    const currentText = textPar.innerHTML;
     textPar.contentEditable = true;
-    textPar.addEventListener('keyup', () => {
+    textPar.addEventListener('blur', () => {
       changedText = textPar.innerHTML;
       if (currentText !== changedText) {
-        ref[indexCurrentText].listItem = changedText;
-        userInput = ref.filter((input) => input.listItem !== currentText);
-        storageManager.setData(userInput);
+        const index = +textPar.id - 1;
+        edit(index, changedText);
       }
     });
   }

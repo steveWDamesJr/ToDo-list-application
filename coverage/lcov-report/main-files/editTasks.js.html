@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for main-files/storage.js</title>
+    <title>Code coverage report for main-files/editTasks.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">main-files</a> storage.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">main-files</a> editTasks.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -32,21 +32,21 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -69,19 +69,25 @@
 <a name='L4'></a><a href='#L4'>4</a>
 <a name='L5'></a><a href='#L5'>5</a>
 <a name='L6'></a><a href='#L6'>6</a>
-<a name='L7'></a><a href='#L7'>7</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">25x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export default class storageManager {
-  static setData = (todoItemsRef) =&gt; {
-    localStorage.setItem('todoItemsRef', JSON.stringify(todoItemsRef));
-  }
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import storageManager from './storage.js';
 &nbsp;
-  static getData = () =&gt; (localStorage.getItem('todoItemsRef') ? JSON.parse(localStorage.getItem('todoItemsRef')) : [])
-}</pre></td></tr></table></pre>
+const edit = (index, changedText) =&gt; {
+  const userInput = storageManager.getData();
+  userInput[index].listItem = changedText;
+  storageManager.setData(userInput);
+};
+&nbsp;
+export default edit;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
