@@ -8,7 +8,9 @@ import {
 import renderTodo from './modules/status.js';
 import add from './main-files/add.js';
 import remove from './main-files/remove.js';
-
+import edit from './main-files/editTasks.js';
+import changeCheck from './main-files/completed.js';
+import clearCompleted from './main-files/clear.js';
 const list = document.querySelector('.form-items');
 
 dateElement.innerHTML = today.toLocaleDateString('en-US', options);
@@ -49,54 +51,40 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 list.addEventListener('click', (event) => {
-  let userInput = storageManager.getData();
-  const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
+  // const ref = JSON.parse(localStorage.getItem('todoItemsRef'));
   const thisTarget = event.target;
   if (thisTarget.className === 'edit') {
-    const currentText = thisTarget.parentElement.querySelector('.task').innerHTML;
-    const indexCurrentText = (ref.map((task) => task.listItem).indexOf(currentText));
+    // const currentText = thisTarget.parentElement.querySelector('.task').innerHTML;
+    // const indexCurrentText = (ref.map((task) => task.listItem).indexOf(currentText));
     const textPar = thisTarget.parentElement.querySelector('.task');
     let changedText = '';
+    const currentText = textPar.innerHTML;
     textPar.contentEditable = true;
-    textPar.addEventListener('keyup', () => {
+    textPar.addEventListener('blur', () => {
       changedText = textPar.innerHTML;
       if (currentText !== changedText) {
-        ref[indexCurrentText].listItem = changedText;
-        userInput = ref.filter((input) => input.listItem !== currentText);
-        storageManager.setData(userInput);
+        const index = +textPar.id - 1;
+        edit(index, changedText);
       }
     });
   }
 });
 
 list.addEventListener('change', (event) => {
-  const userInput = storageManager.getData();
   const thisTarget = event.target;
-
-  const checkboxToTick = thisTarget.parentElement.querySelector('.check');
-
   const textPtag = thisTarget.parentElement.querySelector('.task');
-
-  userInput.forEach((task) => {
-    if (checkboxToTick.checked === true) {
-      if (task.listItem === textPtag.innerHTML) {
-        textPtag.classList.add('line-through');
-        task.completed = true;
-      }
-    } else {
-      // eslint-disable-next-line no-lonely-if
-      if (task.listItem === textPtag.innerHTML) {
-        textPtag.classList.remove('line-through');
-        task.completed = false;
-      }
-    }
-  });
-  storageManager.setData(userInput);
+  
+  const checkboxToTick = thisTarget.parentElement.querySelector('.check');
+  const index = checkboxToTick.id;
+  const status = checkboxToTick.checked;
+  if (status) {
+    textPtag.classList.add('line-through');
+  } else {
+    textPtag.classList.remove('line-through');
+  }
+  changeCheck(index, status);
 });
 
 clearAllBtn.addEventListener('click', () => {
-  let userInput = storageManager.getData();
-  userInput = userInput.filter((task) => task.completed === false);
-  storageManager.setData(userInput);
-  renderTodo();
+  clearCompleted();
 });
